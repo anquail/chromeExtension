@@ -1,0 +1,21 @@
+body {
+  background-image: url("images/eyes.jpg");
+  background-size: 500px 400px;
+  background-color: rgb(89, 170, 247);
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* center {
+          margin: auto;
+          text-justify: center;
+        } */
+
+h1 {
+  margin: auto;
+  font-family: Sans-serif;
+  color: rgb(16, 9, 39);
+  font-size: 29px;
+}

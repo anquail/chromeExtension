@@ -1,5 +1,9 @@
+* {
+  overflow: hidden;
+}
+
 body {
-  background: url("images/water.jpg") no-repeat center center fixed;
+  background: url("images/water.jpg") repeat center center fixed;
   height: 100vh;
   width: 100vw;
 }
