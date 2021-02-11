@@ -4,12 +4,12 @@
  * @see /apps/app.window.html
  */
 chrome.runtime.onStartup.addListener(function () {
-  chrome.windows.create({
-    url: "index.html",
-    type: "popup",
-    height: 500,
-    width: 400,
-  });
+  // chrome.windows.create({
+  //   url: "index.html",
+  //   type: "popup",
+  //   height: 700,
+  //   width: 500,
+  // });
 
   chrome.alarms.create("test Alarm", {
     delayInMinutes: 0.1,

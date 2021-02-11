@@ -1,3 +1,8 @@
+* {
+  overflow: hidden;
+  font-weight: bold;
+  font-family: fantasy;
+}
 body {
   background-image: url("images/walk.jpg");
   background-size: 500px 400px;
@@ -16,8 +21,9 @@ body {
 h1 {
   margin: auto;
   font-family: Sans-serif;
-  color: rgb(16, 9, 39);
-  font-size: 29px;
+  color: rgb(240, 201, 151);
+  font-size: 23px;
+  text-shadow: 0 0 10px #000000, 0 0 5px #000000;
 }
 /* 
 center {

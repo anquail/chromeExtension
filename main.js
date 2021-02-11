@@ -1,8 +1,8 @@
 const createEsWindow = (delay) => {
   console.log("es clicked");
   chrome.alarms.create("es", {
-    delayInMinutes: 0.1,
-    periodInMinutes: 0.1,
+    delayInMinutes: 1,
+    periodInMinutes: 1,
     // delayInMinutes: delay,
     // periodInMinutes: delay,
   });
@@ -45,16 +45,42 @@ const funcObj = {
   walk: createWalkWindow,
 };
 
+const createTestWindow = (str) => {
+  const map = {
+    es: "eyes.html",
+    st: "stretch.html",
+    walk: "walk.html",
+    wat: "water.html",
+  };
+  chrome.windows.create({
+    url: `${map[str]}`,
+    type: "popup",
+    height: 500,
+    width: 400,
+  });
+};
+
+function changeButtonColor() {
+  console.log(this);
+  this.style.backgroundColor = "rgb(75, 150, 201)";
+  this.style.color = "rgb(255, 166, 0)";
+  this.style.textShadow = "0 0 2px #000000, 0 0 5px #000000";
+  this.innerText = new Date(Date.now() + 20 * 60 * 1000).toLocaleTimeString();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   chrome.alarms.clearAll();
   // ADD EVENT LISTENERS
-  // const es20 = document.querySelector("#es20");
-  // es20.addEventListener("click", () => createEsWindow(0.1));
   let health = ["es", "st", "wat", "walk"];
   for (let i = 20; i < 61; i += 20) {
     health.forEach((str) => {
-      const node = document.querySelector(`#${str + i}`);
-      node.addEventListener("click", () => funcObj[str](i));
+      let node = document.querySelector(`#${str + i}`);
+      if (i === 20) {
+        node.addEventListener("click", () => createTestWindow(str));
+      } else {
+        node.addEventListener("click", () => funcObj[str](i));
+      }
+      node.addEventListener("click", changeButtonColor.bind(node));
     });
   }
 
