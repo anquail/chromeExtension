@@ -11,6 +11,7 @@ body {
   width: 100vw;
   color: rgb(255, 166, 0);
   text-shadow: 0 0 15px #000000, 0 0 5px #000000;
+  padding-bottom: 50px;
 }
 
 h2 {
