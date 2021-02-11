@@ -1,0 +1,17 @@
+body {
+  background-image: url("images/stretch.jpg");
+  width: 25%;
+  height: 25%;
+}
+
+/* center {
+    margin: auto;
+    text-justify: center;
+  } */
+
+h1 {
+  margin: auto;
+  font-family: Sans-serif;
+  color: rgb(16, 9, 39);
+  font-size: 72px;
+}

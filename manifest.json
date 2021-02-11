@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Healthy Reminders",
+  "version": "1",
+  "icons": {
+    "128": "icon_128.png"
+  },
+  "permissions": ["alarms"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "minimum_chrome_version": "28"
+}
