@@ -6,7 +6,7 @@
 body {
   background-image: url("images/walk.jpg");
   background-size: 500px 400px;
-  background-color: rgb(89, 170, 247);
+  /* background-color: rgb(89, 170, 247); */
   height: 100vh;
   display: flex;
   align-items: flex-end;

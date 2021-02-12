@@ -1,40 +1,32 @@
 const createEsWindow = (delay) => {
   console.log("es clicked");
   chrome.alarms.create("es", {
-    delayInMinutes: 0.2,
-    periodInMinutes: 0.2,
-    // delayInMinutes: delay,
-    // periodInMinutes: delay,
+    delayInMinutes: delay,
+    periodInMinutes: delay,
   });
 };
 
 const createWalkWindow = (delay) => {
   console.log("walk clicked");
   chrome.alarms.create("walk", {
-    delayInMinutes: 0.1,
-    periodInMinutes: 0.1,
-    // delayInMinutes: delay,
-    // periodInMinutes: delay,
+    delayInMinutes: delay,
+    periodInMinutes: delay,
   });
 };
 
 const createStWindow = (delay) => {
   console.log("stretch clicked");
   chrome.alarms.create("st", {
-    // delayInMinutes: delay,
-    // periodInMinutes: delay,
-    delayInMinutes: 0.1,
-    periodInMinutes: 0.1,
+    delayInMinutes: delay,
+    periodInMinutes: delay,
   });
 };
 
 const createWaterWindow = (delay) => {
   console.log("water clicked");
   chrome.alarms.create("wat", {
-    delayInMinutes: 0.1,
-    periodInMinutes: 0.1,
-    // delayInMinutes: delay,
-    // periodInMinutes: delay,
+    delayInMinutes: delay - 39,
+    periodInMinutes: delay,
   });
 };
 
@@ -63,14 +55,10 @@ const createTestWindow = (str) => {
 function changeButtonColor() {
   console.log(this);
   this.setAttribute("class", "active");
-  // this.style.backgroundColor = "rgb(75, 150, 201)";
-  // this.style.color = "rgb(255, 166, 0)";
-  // this.style.textShadow = "0 0 2px #000000, 0 0 5px #000000";
   this.innerText = new Date(Date.now() + 20 * 60 * 1000).toLocaleTimeString();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // chrome.alarms.clearAll();
   // ADD EVENT LISTENERS
   let health = ["es", "st", "wat", "walk"];
   const buttons = [];
@@ -97,40 +85,39 @@ document.addEventListener("DOMContentLoaded", () => {
       if (btn.getAttribute("id").includes("60")) btn.innerText = "60 min";
     });
   });
-
-  // chrome.alarms.onAlarm.addListener(function (alarm) {
-  //   console.log(alarm);
-  //   if (alarm.name === "es") {
-  //     chrome.windows.create({
-  //       url: "eyes.html",
-  //       type: "popup",
-  //       height: 500,
-  //       width: 400,
-  //     });
-  //   }
-  //   if (alarm.name === "st") {
-  //     chrome.windows.create({
-  //       url: "stretch.html",
-  //       type: "popup",
-  //       height: 500,
-  //       width: 400,
-  //     });
-  //   }
-  //   if (alarm.name === "walk") {
-  //     chrome.windows.create({
-  //       url: "walk.html",
-  //       type: "popup",
-  //       height: 500,
-  //       width: 400,
-  //     });
-  //   }
-  //   if (alarm.name === "wat") {
-  //     chrome.windows.create({
-  //       url: "water.html",
-  //       type: "popup",
-  //       height: 500,
-  //       width: 400,
-  //     });
-  //   }
-  // });
+  chrome.alarms.onAlarm.addListener(function (alarm) {
+    console.log(alarm);
+    if (alarm.name === "es") {
+      chrome.windows.create({
+        url: "eyes.html",
+        type: "popup",
+        height: 500,
+        width: 400,
+      });
+    }
+    if (alarm.name === "st") {
+      chrome.windows.create({
+        url: "stretch.html",
+        type: "popup",
+        height: 500,
+        width: 400,
+      });
+    }
+    if (alarm.name === "walk") {
+      chrome.windows.create({
+        url: "walk.html",
+        type: "popup",
+        height: 500,
+        width: 400,
+      });
+    }
+    if (alarm.name === "wat") {
+      chrome.windows.create({
+        url: "water.html",
+        type: "popup",
+        height: 500,
+        width: 400,
+      });
+    }
+  });
 });
